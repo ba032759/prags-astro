@@ -1,0 +1,19 @@
+<!-- ---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+// Call the auth service to authenticate the user's cookie.
+// We invoke it using a service binding.
+const authResult = await env.AUTH_SERVICE.checkCookie(
+  req.headers.get("Cookie")
+);
+
+// Use the result.
+if (!authResult.authorized) {
+  return new Response("Not authorized", { status: 403 });
+}
+const username = authResult.username;
+---
+
+<BaseLayout title="Profile">
+  <h1>Welcome, {username}!</h1>
+</BaseLayout> -->
