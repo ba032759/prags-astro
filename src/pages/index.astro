@@ -2,7 +2,20 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "Home Page";
+// const myKV = Astro.locals.runtime.env.MY_KV;
+// const value = await myKV.get("key");
+const { env } = Astro.locals.runtime;
+// @ts-ignore
+const myVariable = env.MY_VARIABLE;
+const value = env.MY_KV?.get("key");
+console.log({ value });
+const kv = env.MY_KV;
+console.log({ kv });
 ---
+
 <BaseLayout pageTitle={pageTitle}>
   <h2>My awesome blog subtitle</h2>
+  <div>var: {myVariable}</div>
+  <div>kv: {kv}</div>
+  <div>value: {value}</div>
 </BaseLayout>
